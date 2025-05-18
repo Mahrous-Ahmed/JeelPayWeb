@@ -19,6 +19,6 @@ public class JsonReader {
    public UserModel getUserDataFromJson(String objectName) throws IOException {
        JsonNode jsonNode =  _objectMapper.readTree(new File(_jsonPath));
        jsonNode = jsonNode.get(objectName);
-       return new UserModel(jsonNode.get("username").asText() , jsonNode.get("password").asText() ,jsonNode.get("OTP").asText() );
+       return new UserModel(jsonNode.get("phoneNumber").asText() , jsonNode.get("password").asText() ,jsonNode.get("OTP").asText() );
    }
 }

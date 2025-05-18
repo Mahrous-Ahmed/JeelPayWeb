@@ -8,12 +8,20 @@ import java.io.IOException;
 
 public class DriverFactory {
 
-    public WebDriver initDriver(String browserName) throws IOException {
+    public WebDriver initDriver(String browserName , String URL)  {
+        WebDriver driver;
 
-        if(browserName.equalsIgnoreCase("chrome")){
-            return new ChromeDriver();
+        switch (browserName.toLowerCase()){
+            case "chrome":
+                driver = new ChromeDriver();
+                driver.manage().window().maximize();
+                driver.get(URL);
+                break;
+
+            default:
+                throw new RuntimeException();
         }
 
-        return null;
+        return driver;
     }
 }
